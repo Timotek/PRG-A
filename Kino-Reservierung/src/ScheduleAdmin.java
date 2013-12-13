@@ -23,6 +23,9 @@ public class ScheduleAdmin extends JFrame{
 	int saal2zaehler = -1;
 	int saal3zaehler = -1;
 	
+	JTextField hall1changeTitle = new JTextField("Hier Filmtitel eingeben");
+	JTextField hall2changeTitle = new JTextField("Hier Filmtitel eingeben");
+	JTextField hall3changeTitle = new JTextField("Hier Filmtitel eingeben");
 	
 	public class Hall1DeleteListener implements ActionListener{
 
@@ -31,13 +34,99 @@ public class ScheduleAdmin extends JFrame{
 			
 			fm.chooseFile("hall1.txt");
 			String temp = fm.readHall();
-			String temp2 = (String) hall1comboBox.getSelectedItem();
-			
+			String temp2 = (String) hall1comboBox.getSelectedItem();	
 			System.out.println(temp2);
 		}
-		
-		
 	}
+	
+	public class SaveTitleListenerHall1 implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			int temp1 = 0;
+			int temp2 = 0;
+			String [] hallArray = new String[8];
+			fm.chooseFile("hall1.txt");
+			
+			while(temp1 < 8){
+				hallArray [temp1]= fm.readHall();
+				temp1 = temp1 + 1;
+			}
+			
+			hallArray[0] = hall1changeTitle.getText();
+			
+			fm.chooseFileWrite("hall1.txt");
+			
+			while(temp2 < 8){
+				try {
+					fm.writeFile(hallArray[temp2]);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				temp2 = temp2 + 1;
+			}	
+		}		
+	}
+	public class SaveTitleListenerHall2 implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			int temp1 = 0;
+			int temp2 = 0;
+			String [] hallArray = new String[8];
+			fm.chooseFile("hall2.txt");
+			
+			while(temp1 < 8){
+				hallArray [temp1]= fm.readHall();
+				temp1 = temp1 + 1;
+			}
+			
+			hallArray[0] = hall2changeTitle.getText();
+			
+			fm.chooseFileWrite("hall2.txt");
+			
+			while(temp2 < 8){
+				try {
+					fm.writeFile(hallArray[temp2]);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				temp2 = temp2 + 1;
+			}	
+		}		
+	}
+	public class SaveTitleListenerHall3 implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			int temp1 = 0;
+			int temp2 = 0;
+			String [] hallArray = new String[8];
+			fm.chooseFile("hall3.txt");
+			
+			while(temp1 < 8){
+				hallArray [temp1]= fm.readHall();
+				temp1 = temp1 + 1;
+			}
+			
+			hallArray[0] = hall3changeTitle.getText();
+			
+			fm.chooseFileWrite("hall3.txt");
+			
+			while(temp2 < 8){
+				try {
+					fm.writeFile(hallArray[temp2]);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				temp2 = temp2 + 1;
+			}	
+		}		
+	}
+
 	
 	
 	
@@ -215,11 +304,7 @@ public class ScheduleAdmin extends JFrame{
 		
 		JButton hall1saveTitle = new JButton("Titel speichern");
 		JButton hall2saveTitle = new JButton("Titel speichern");
-		JButton hall3saveTitle = new JButton("Titel speichern");
-		
-		JTextField hall1changeTitle = new JTextField("Hier Filmtitel eingeben");
-		JTextField hall2changeTitle = new JTextField("Hier Filmtitel eingeben");
-		JTextField hall3changeTitle = new JTextField("Hier Filmtitel eingeben");
+		JButton hall3saveTitle = new JButton("Titel speichern");	
 
 		JTextField hall1newDate = new JTextField("Hier neues Datum eingeben");
 		JTextField hall2newDate = new JTextField("Hier neues Datum eingeben");
@@ -236,6 +321,19 @@ public class ScheduleAdmin extends JFrame{
 		
 		JLabel title = new JLabel("Bitte waehlen Sie einen Film:");
 		titlePanel.add(title);
+		
+		//++++++++++++++++++++++++++++++++++++++++++++++++
+		
+		
+		
+		hall1saveTitle.addActionListener(new SaveTitleListenerHall1());
+		hall2saveTitle.addActionListener(new SaveTitleListenerHall2());
+		hall3saveTitle.addActionListener(new SaveTitleListenerHall3());
+		
+		
+		
+		
+		//++++++++++++++++++++++++++++++++++++++++++++++++
 
 		//////////////////////////////////////
 		

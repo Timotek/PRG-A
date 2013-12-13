@@ -137,6 +137,21 @@ public class FileManager {
 	}
 	
 	
+	
+	public void writeLine(String search, String write){
+		String temp1 = search;
+		String temp2 = write;
+		
+		
+		System.out.println(temp1 + temp2);
+		
+	}
+	
+	
+	
+	
+	
+	
 	/*
 	public static void main(String[]args){
 		
