@@ -15,7 +15,8 @@ public class UploadDownload {
 		f.setUser("tks_prg");
 		f.setPassword("wennsImArschloch3*Knallt!");
 		f.setRemoteFile(ftpFile);
-		f.connect();
+		System.out.println(ftpFile);
+		connected = f.connect();
 		
 		if (upload == true) {
 			upload();
@@ -28,15 +29,16 @@ public class UploadDownload {
 	void upload(){
 		if ( connected){
 		  // Upload a file from your local drive, lets say in “c:/ftpul/u.txt”
-		  if (f.uploadFile(ftpFile))
+		  if (f.uploadFile(ftpFile)){
 		    // display the message of success if uploaded
 		  System.out.println(f.getLastSuccessMessage ());
+		  }
 		  else
 		    System.out.println(f.getLastErrorMessage ());
 		  }
 		  else
 		  // Display any connection exception, if any
-		    System.out.println(f.getLastErrorMessage ());  
+		    System.out.println(f.getLastErrorMessage ()); 
 	}
 	
 	void download(){
@@ -56,6 +58,6 @@ public class UploadDownload {
 	
 	
 	//public static void main (String[] args){
-	//	new UploadDownload();
+	//	new UploadDownload(true, "User/test.txt");
 	//}
 }
