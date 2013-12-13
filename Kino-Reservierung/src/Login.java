@@ -16,9 +16,11 @@ import javax.swing.JTextField;
 
 public class Login extends JFrame{
 
+	
 //Inititalisierung der Swing-Komponenten
 JLabel userLabel = new JLabel("Username");
 JLabel passLabel = new JLabel("Password");
+
 
 
 JTextField userField = new JTextField();
@@ -39,10 +41,18 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 		setDefaultCloseOperation(EXIT_ON_CLOSE); //das muessen wir spaeter wohl rausnehmen, hab gelesen, dass das stoeren kann, wenn man den jframe im browser darstellen moechte
 		setSize(400,100);
 		setLayout(new GridLayout(3,2));
-		
 		//Hinzufuegen der Komponenten zum JFrame
+		userLabel.setOpaque(true);
+		userLabel.setBackground(Color.DARK_GRAY);
+		userLabel.setForeground(Color.BLACK);
+
 		add(userLabel);
+		userField.setForeground(Color.BLACK);
 		add(userField);
+		
+		passLabel.setOpaque(true);
+		passLabel.setBackground(Color.DARK_GRAY);
+		passLabel.setForeground(Color.BLACK);
 		add(passLabel);
 		add(passField);
 		loginButton.addActionListener (new UserNameActionListener (userField, passField));	
@@ -162,6 +172,7 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 	public static void main(String[]args){
 		Login app = new Login();
 		app.setVisible(true);
+
 
 	}
 }
