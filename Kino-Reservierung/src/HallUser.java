@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -41,7 +42,6 @@ public class HallUser extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(600,600);
 		setLayout(new GridLayout(9,1));
-		
 		this.show = show;
 		
 		//Datei waehlen 
@@ -56,17 +56,21 @@ public class HallUser extends JFrame{
 			String row = "row"+i;
 			rowList.put(row, new JPanel());
 			JPanel panel = rowList.get(row);
+			panel.setBackground(Color.red);
 			add(panel);
 			int k = 1;
 			
 			if(i<=8){
 				
 				JLabel label = new JLabel("Reihe"+i);
+				label.setForeground(Color.BLACK);
 				panel.add(label);
 				
 			} else { 
 				
+				save.setForeground(Color.BLACK);
 				panel.add(save);
+				discard.setForeground(Color.BLACK);
 				panel.add(discard);
 				discard.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -77,7 +81,7 @@ public class HallUser extends JFrame{
 			}
 			
 			//Verschachtelte For-Schleife: Hier werden die Sitze 
-			//erstellt, in die HashMap geladen und dem JPanel hinzugefuegt
+			//erstellt, in die HashMap geladen und dem JPanel hinzugefuegt111
 			for(int j = k; j <= 13; j++){
 				
 				if(i==9){
@@ -90,6 +94,7 @@ public class HallUser extends JFrame{
 				
 				//JCheckBox aus der SeatList holen
 				JCheckBox checkBox = seatList.get(seatString);
+				checkBox.setBackground(Color.BLACK);
 				
 				//idList-Eintrag erstellen und Laufvariable hochzaehlen
 				String valueI = String.valueOf(i);
@@ -165,12 +170,12 @@ public class HallUser extends JFrame{
 		}
 	}
 	
-	public static void main(String [] args){
+	//public static void main(String [] args){
 		
-		HallUser app = new HallUser("seats");
-		app.setVisible(true);
+		//HallUser app = new HallUser("seats");
+		//app.setVisible(true);
 		
-	}
+	//}
 }
 
 //neu
