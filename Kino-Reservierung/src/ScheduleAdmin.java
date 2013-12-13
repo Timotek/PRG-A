@@ -1,11 +1,14 @@
 import java.awt.Dimension;
 import java.awt.GridLayout;
+//import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -26,6 +29,10 @@ public class ScheduleAdmin extends JFrame{
 	JTextField hall1changeTitle = new JTextField("Hier Filmtitel eingeben");
 	JTextField hall2changeTitle = new JTextField("Hier Filmtitel eingeben");
 	JTextField hall3changeTitle = new JTextField("Hier Filmtitel eingeben");
+
+	JTextField hall1newDate = new JTextField("Hier neues Datum eingeben");
+	JTextField hall2newDate = new JTextField("Hier neues Datum eingeben");
+	JTextField hall3newDate = new JTextField("Hier neues Datum eingeben");
 	
 	public class Hall1DeleteListener implements ActionListener{
 
@@ -128,6 +135,48 @@ public class ScheduleAdmin extends JFrame{
 	}
 
 	
+	//////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////
+	
+	public class DateListenerHall1 implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			////////////////////////
+			////////////////////////
+			//Datum zu txt hinfufuegen
+			
+			int temp1 = 0;
+			int temp2 = 0;
+			fm.chooseFile("hall1.txt");
+			
+			//List initialisieren
+			List<String> hallList = new ArrayList<>();
+			
+			//List mit Inhalt aus txt befuellen
+			while(temp1 < hallList.size()){
+				hallList.add(fm.readHall());
+				temp1 = temp1 + 1;
+			}
+			
+			//Neues Datum hinzufuegen
+			hallList.add(0, hall1newDate.getText());
+			
+			fm.chooseFileWrite("hall1.txt");
+			
+			//txt mit inhalt aus List befuellen
+			while(temp2 < hallList.size()){
+				try {
+					fm.writeFile(hallList.get(temp2));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				temp2 = temp2 + 1;
+			}	
+		}		
+	}
 	
 	
 	public ScheduleAdmin(){
@@ -146,6 +195,9 @@ public class ScheduleAdmin extends JFrame{
 		JButton hall3delete = new JButton("Loeschen");
 		
 		
+		//////////////////////////////////////////////////
+		//////////////////////////////////////////////////
+
 		
 		JButton hall1saveDate = new JButton("Datum speichern");
 		hall1saveDate.addActionListener(new java.awt.event.ActionListener() {
@@ -184,20 +236,44 @@ public class ScheduleAdmin extends JFrame{
 						}
 					}
 				}
+				/*
+				////////////////////////
+				////////////////////////
+				//Datum zu txt hinfufuegen
+				
+				int temp1 = 0;
+				int temp2 = 0;
+				fm.chooseFile("hall1.txt");
+				
+				//List initialisieren
+				List<String> hallList = new ArrayList<>();
+				
+				//List mit Inhalt aus txt befuellen
+				hallList.add(fm.readHall());
+				while(fm.readHall().equals("DATUM")){
+					hallList.add(fm.readHall());
+					hallList.add("DATUM");
+				}
+				
+				//Neues Datum hinzufuegen
+				//hallList.add("DATUM");
+				//hallList.add(hall1newDate.getText());
 				
 				
+				fm.chooseFileWrite("hall1.txt");
 				
-				
-					
-				
-				
-				
+				//txt mit inhalt aus List befuellen
+				while(temp2 < hallList.size()){
+					try {
+						fm.writeFile(hallList.get(temp2));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					temp2 = temp2 + 1;
+				}
+				*/
 			}
-	
-				
-				
-				
-			
         });		
 		
 		JButton hall2saveDate = new JButton("Datum speichern");
@@ -238,19 +314,8 @@ public class ScheduleAdmin extends JFrame{
 						}
 					}
 				}
-				
-				
-				
-				
-					
-				
-				
-				
 			}
 	
-				
-				
-			
         });	
 		
 		JButton hall3saveDate = new JButton("Datum speichern");
@@ -291,24 +356,17 @@ public class ScheduleAdmin extends JFrame{
 						}
 					}
 				}
-				
-				
-				
-				
-					
-				
-				
-				
 			}
         });	
+		
+		
+		//////////////////////////////////////////////////
+		//////////////////////////////////////////////////
+		
 		
 		JButton hall1saveTitle = new JButton("Titel speichern");
 		JButton hall2saveTitle = new JButton("Titel speichern");
 		JButton hall3saveTitle = new JButton("Titel speichern");	
-
-		JTextField hall1newDate = new JTextField("Hier neues Datum eingeben");
-		JTextField hall2newDate = new JTextField("Hier neues Datum eingeben");
-		JTextField hall3newDate = new JTextField("Hier neues Datum eingeben");
 				
 		add(titlePanel);
 		add(hall1Panel);
@@ -330,8 +388,7 @@ public class ScheduleAdmin extends JFrame{
 		hall2saveTitle.addActionListener(new SaveTitleListenerHall2());
 		hall3saveTitle.addActionListener(new SaveTitleListenerHall3());
 		
-		
-		
+
 		
 		//++++++++++++++++++++++++++++++++++++++++++++++++
 
