@@ -44,7 +44,7 @@ public class User {
 			fm.createFile(filename + ".txt");
 			System.out.println("Datei " + filename + ".txt erstellt");
 			sendUserData(firstName, name, birthday, email, userName, pw);
-			String ftpUser = "/user/" + filename + ".txt";
+			String ftpUser = "user/" + filename + ".txt";
 			System.out.println(ftpUser);
 			new UploadDownload(true,ftpUser);
 			Register.finishedDialog();
