@@ -1,18 +1,20 @@
 
 public class UploadDownload {
 	
+	String ftpFile;
 	boolean connected;		//wenn boolean upload == true, dann wird upload-Methode aufgerufen
 	SimpleFTPClient f;		//upload == false bedeutet download
 	
 	
-	UploadDownload(boolean upload){			
+	UploadDownload(boolean upload, String ftpFile){		
 		
 	//Ftp-Server initialisieren
+		this.ftpFile = ftpFile;
 		f = new SimpleFTPClient ();
 		f.setHost("tks.square7.ch");
 		f.setUser("tks_prg");
 		f.setPassword("wennsImArschloch3*Knallt!");
-		f.setRemoteFile("/test/testupload.txt");
+		f.setRemoteFile(ftpFile);
 		f.connect();
 		
 		if (upload == true) {
@@ -26,7 +28,7 @@ public class UploadDownload {
 	void upload(){
 		if ( connected){
 		  // Upload a file from your local drive, lets say in “c:/ftpul/u.txt”
-		  if (f.uploadFile("testupload.txt"))
+		  if (f.uploadFile(ftpFile))
 		    // display the message of success if uploaded
 		  System.out.println(f.getLastSuccessMessage ());
 		  else
