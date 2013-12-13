@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -5,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.io.*;
 import java.util.*;
+
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -18,11 +20,12 @@ public class Login extends JFrame{
 JLabel userLabel = new JLabel("Username");
 JLabel passLabel = new JLabel("Password");
 
+
 JTextField userField = new JTextField();
 JPasswordField passField = new JPasswordField();
 
 JButton loginButton = new JButton("Login");
-JButton registerButton = new JButton("New Here? Sign up!");
+JButton registerButton = new JButton("Register");
 
 
 String userName;
@@ -36,7 +39,7 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 		setDefaultCloseOperation(EXIT_ON_CLOSE); //das muessen wir spaeter wohl rausnehmen, hab gelesen, dass das stoeren kann, wenn man den jframe im browser darstellen moechte
 		setSize(400,100);
 		setLayout(new GridLayout(3,2));
-
+		
 		//Hinzufuegen der Komponenten zum JFrame
 		add(userLabel);
 		add(userField);
