@@ -56,13 +56,13 @@ public class HallUser extends JFrame{
 			String row = "row"+i;
 			rowList.put(row, new JPanel());
 			JPanel panel = rowList.get(row);
-			panel.setBackground(Color.red);
+			panel.setBackground(Color.DARK_GRAY);
 			add(panel);
 			int k = 1;
 			
 			if(i<=8){
 				
-				JLabel label = new JLabel("Reihe"+i);
+				JLabel label = new JLabel("Reihe "+i);
 				label.setForeground(Color.BLACK);
 				panel.add(label);
 				
