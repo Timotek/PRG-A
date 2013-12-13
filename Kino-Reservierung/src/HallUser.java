@@ -165,12 +165,12 @@ public class HallUser extends JFrame{
 		}
 	}
 	
-	//public static void main(String [] args){
+	public static void main(String [] args){
 		
-		//HallUser app = new HallUser("seats");
-	//	app.setVisible(true);
+		HallUser app = new HallUser("seats");
+		app.setVisible(true);
 		
-	//}
+	}
 }
 
 //neu
