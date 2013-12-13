@@ -86,7 +86,7 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 			pw = String.valueOf(passField.getPassword());
 			System.out.println (userName);
 			System.out.println(pw);
-			saveUserData();
+			searchUserData();
 			compareUserData();	
 			
 			if(userName.equals("admin")){
@@ -106,8 +106,19 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 	ArrayList userList = new ArrayList<Double>();
 	//Scannen der txt Datei, Schreiben der Zeilen in ArrayList
 
-	public void saveUserData(){	
+	public void searchUserData(){	
 		try { //Pfad zeigt auf User-Verzeichnis im Projektverzeichnis
+			//Bevor die Datei lokal gesucht wird, muss sie auf dem FTP-Server gefunden und runtergeladen werden
+			//Dies erledigt UploadDownload.java
+			
+			String userFileFTPPath = "User/"+userName+".txt";
+			UploadDownload uploadDownload = new UploadDownload(false, userFileFTPPath);	//false, da ein Download in UploadDownload.java stattfinden soll
+			
+			//if (uploadDownload.download() == false) {
+			
+	//--------------------------------------------------------------------------------
+			//FÜR LOKALE SUCHE:
+			
 			Scanner scan = new Scanner(new File("User\\"+userName + ".txt"));
 			while(scan.hasNextLine()) {
 				userList.add(scan.nextLine());
@@ -118,6 +129,8 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 				System.out.println(it.next());
 			}
 		}
+	//--------------------------------------------------------------------------------
+		
 		catch(FileNotFoundException e) {
 			System.out.println("Fehler: Quelldatei existiert nicht");
 			loginDialog();
@@ -127,6 +140,7 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 			System.exit(1);
 		}
 	}
+	
 
 	//nächster Schritt: arraylist durchsuchen nach eingegebenem Passwort
 
@@ -141,8 +155,6 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 			System.out.println("Passwörter nicht gleich!");
 			loginDialog();
 		}
-		// eigentliche Funktion: Weiterleitung zur entsprechenden Seite bei erfolgreichem Login
-		// bzw. bei fehlgeschlagenem Login JDialog Meldung
 	}
 
 	public void loginDialog() {

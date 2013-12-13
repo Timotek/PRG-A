@@ -41,19 +41,26 @@ public class UploadDownload {
 		    System.out.println(f.getLastErrorMessage ()); 
 	}
 	
-	void download(){
+	boolean download(){
 		if ( connected){
 			  // The downloaded file to be saved to the local drive
-			  // as mydl.txt and in the subfoler c:\ftpdownloads
-			  if (f.downloadFile(ftpFile))
-			    // display the message of success if uploaded
-			    System.out.println(f.getLastSuccessMessage ());
-			  else
-			    System.out.println(f.getLastErrorMessage ());
-			}
-			else
-			  // Display any connection exception, if any
-			  System.out.println(f.getLastErrorMessage ());
+			  // as mydl.txt and in the subfolder c:\ftpdownloads
+			  if (f.downloadFile(ftpFile)) {
+				  // display the message of success if uploaded
+				  System.out.println(f.getLastSuccessMessage ());
+				  return true;
+			  	  }
+			  else {
+				  System.out.println(f.getLastErrorMessage ());
+				  return false;
+			  }
+		}
+		else {
+			// Display any connection exception, if any
+			System.out.println(f.getLastErrorMessage ());
+			return false;
+			//Hier könnte man noch einen JDialog (z.B. in "Login") öffnen lassen
+		}
 	}
 	
 	
