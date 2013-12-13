@@ -45,7 +45,7 @@ public class UploadDownload {
 		if ( connected){
 			  // The downloaded file to be saved to the local drive
 			  // as mydl.txt and in the subfoler c:\ftpdownloads
-			  if (f.downloadFile("dl.txt"))
+			  if (f.downloadFile(ftpFile))
 			    // display the message of success if uploaded
 			    System.out.println(f.getLastSuccessMessage ());
 			  else
