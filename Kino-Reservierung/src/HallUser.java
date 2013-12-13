@@ -23,8 +23,8 @@ public class HallUser extends JFrame{
 
 	
 	//Die zwei Buttons...
-	JButton save = new JButton("Speichern");
-	JButton discard = new JButton("Zurueck");
+	JButton save = new JButton("Auswahl reservieren");
+	JButton discard = new JButton("Zurück");
 	
 	//Objekt vom FileManager erstellen
 	FileManager fm = new FileManager();
