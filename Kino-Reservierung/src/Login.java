@@ -87,21 +87,25 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 			System.out.println (userName);
 			System.out.println(pw);
 			searchUserData();
-			compareUserData();	
+			//compareUserData();	
 			
 			if(userName.equals("admin")){
 				System.out.println("DU bist admin");
-				
-				ScheduleAdmin adminSchedule = new ScheduleAdmin();
-				adminSchedule.setVisible(true);
-				
+				if (compareUserData() == true){
+					ScheduleAdmin adminSchedule = new ScheduleAdmin();
+					adminSchedule.setVisible(true);	
+				}
 			}
-			else{
-			ScheduleUser userSchedule = new ScheduleUser();
-			userSchedule.setVisible(true);
-			}
+			
+			else if (userName != ("admin")){
+				System.out.println("Du bist User");
+				if (compareUserData() == true){
+					ScheduleUser userSchedule = new ScheduleUser();
+					userSchedule.setVisible(true);	
+				}
 			}
 		}
+	}
 
 	ArrayList userList = new ArrayList<Double>();
 	//Scannen der txt Datei, Schreiben der Zeilen in ArrayList
@@ -144,16 +148,19 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 
 	//nächster Schritt: arraylist durchsuchen nach eingegebenem Passwort
 
-	public void compareUserData(){
+	public boolean compareUserData(){
 
 		if(pw.equals(userList.get(5)) ){
 			System.out.println("Passwörter sind gleich!");
 			System.out.println("Eingegebenes Passwort: " + pw);
 			System.out.println("Gespeichertes Passwort: " + userList.get(5));
+			return true;
+			
 		}
 		else {
 			System.out.println("Passwörter nicht gleich!");
 			loginDialog();
+			return false;
 		}
 	}
 
