@@ -1,13 +1,16 @@
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JDialog;
 
 
@@ -24,7 +27,7 @@ import javax.swing.JDialog;
 		String pw;  
 		String pw2;
 
-		private JLabel instructionsLabel = new JLabel();
+		
 		private JLabel firstNameLabel = new JLabel();
 		private JLabel nameLabel = new JLabel();
 		private JLabel birthdayLabel = new JLabel();
@@ -53,22 +56,26 @@ import javax.swing.JDialog;
 		public Register(){
 			super("Registrierung");
 			//Auskommentiert, damit sich nur das Register Fenster, jedoch nicht das gesamte Programm schließt.
-			//setDefaultCloseOperation(EXIT_ON_CLOSE);
+			
 			setSize(542,270);
 			setLayout(new BorderLayout());
-
-			//Header-Panel
-			//northPanel = new JPanel(new GridLayout(10,0));
-			//add(northPanel, BorderLayout.NORTH);
-
-			instructionsLabel.setText("Bitte füllen Sie folgendes Formular vollständig aus: ");
-			//northPanel.add(instructionsLabel);
+			firstNameLabel.setForeground(Color.WHITE);
+			nameLabel.setForeground(Color.WHITE);
+			birthdayLabel.setForeground(Color.WHITE);
+			emailLabel.setForeground(Color.WHITE);
+			userNameLabel.setForeground(Color.WHITE);
+			pwLabel.setForeground(Color.WHITE);
+			pw2Label.setForeground(Color.WHITE);
 
 			//Formular-Panel
 			westPanel = new JPanel(new GridLayout(8,0));
 			add(westPanel, BorderLayout.WEST);
+			westPanel.setBackground(Color.DARK_GRAY);
+
 			eastPanel = new JPanel(new GridLayout(8,0));
 			add(eastPanel, BorderLayout.EAST);
+			eastPanel.setBackground(Color.DARK_GRAY);
+
 			//southPanel = new JPanel(new FlowLayout());
 			//add(southPanel, BorderLayout.SOUTH);
 

@@ -46,15 +46,14 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 		//Hinzufuegen der Komponenten zum JFrame
 		userLabel.setOpaque(true);
 		userLabel.setBackground(Color.DARK_GRAY);
-		userLabel.setForeground(Color.BLACK);
+		userLabel.setForeground(Color.WHITE);
 		
 		add(userLabel);
-		userField.setForeground(Color.BLACK);
 		add(userField);
 		
 		passLabel.setOpaque(true);
 		passLabel.setBackground(Color.DARK_GRAY);
-		passLabel.setForeground(Color.BLACK);
+		passLabel.setForeground(Color.WHITE);
 		add(passLabel);
 		add(passField);
 		loginButton.addActionListener (new UserNameActionListener (userField, passField));	
