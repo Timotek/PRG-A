@@ -143,34 +143,12 @@ public class ScheduleAdmin extends JFrame{
 	
 	
 	
-	public void loginDialog() {
-		final JDialog loginDialog = new JDialog();
-		loginDialog.setTitle("");
-		loginDialog.setSize(400,100);
-		loginDialog.setModal(false);
-		loginDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		loginDialog.setLayout(new FlowLayout());
-		loginDialog.add(new JLabel("Das Passwort oder der Benutzername ist nicht korrekt"));
-		JButton closeButton = new JButton("schließen");
-		loginDialog.add(closeButton);
-		loginDialog.setVisible(true);
-		closeButton.addActionListener(new ActionListener(){
-
-			public void actionPerformed(ActionEvent e) {
-				loginDialog.dispose();	
-			}
-		});
-	}
-	
-	
-	
-	
 	//////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////
 	
 	
 	//unnötiger ActionListener
-	/*
+	
 	public class DateListenerHall1 implements ActionListener{
 
 		@Override
@@ -210,7 +188,7 @@ public class ScheduleAdmin extends JFrame{
 			}	
 		}		
 	}
-	*/
+	
 	
 	public void confirmDialog() {
 		final JDialog confirmDialog = new JDialog();
@@ -227,8 +205,7 @@ public class ScheduleAdmin extends JFrame{
 
 			public void actionPerformed(ActionEvent e) {
 				confirmDialog.dispose();	
-				Login login = new Login();
-                login.setVisible(true);
+				
 			}
 		});
 	}
@@ -237,12 +214,13 @@ public class ScheduleAdmin extends JFrame{
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(550,600);
-		setLayout(new GridLayout(4,0));
+		setLayout(new GridLayout(5,0));
 		
 		JPanel titlePanel = new JPanel();
 		JPanel hall1Panel = new JPanel();
 		JPanel hall2Panel = new JPanel();
 		JPanel hall3Panel = new JPanel();
+		JPanel backPanel = new JPanel();
 				
 	//	JButton hall1delete = new JButton("Loeschen");
 	//	JButton hall2delete = new JButton("Loeschen");
@@ -256,7 +234,7 @@ public class ScheduleAdmin extends JFrame{
 		JButton hall1save = new JButton("Speichern");
 		hall1save.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
-                dispose();
+                
                 confirmDialog();    
 			}});
 		
@@ -265,6 +243,7 @@ public class ScheduleAdmin extends JFrame{
 
 				saal1zaehler ++;
 				String saal1txt = "seats" + "saal1" + "-" + saal1zaehler +".txt";
+				System.out.println(saal1txt);
 				File file = new File(saal1txt);
 				try {
 					final PrintWriter fileWriter = new PrintWriter(file);
@@ -428,10 +407,22 @@ public class ScheduleAdmin extends JFrame{
 		//JButton hall2saveTitle = new JButton("Titel speichern");
 		//JButton hall3saveTitle = new JButton("Titel speichern");	
 				
+		JButton backButton= new JButton("zurück");
+		backPanel.add(backButton);
+		backButton.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+           dispose();
+           Login login = new Login();
+           login.setVisible(true);
+            }
+        });
+		
+		
 		add(titlePanel);
 		add(hall1Panel);
 		add(hall2Panel);
 		add(hall3Panel);
+		add(backPanel);
 		
 		String movieTitle1;
 		String movieTitle2;
