@@ -28,6 +28,7 @@ JPasswordField passField = new JPasswordField();
 
 JButton loginButton = new JButton("Login");
 JButton registerButton = new JButton("Register");
+JButton schlieﬂenButton = new JButton("Schlieﬂen");
 
 
 String userName;
@@ -36,11 +37,12 @@ String pw;
 FileManager fileM = new FileManager(); // Filemanager neues Objekt
 
 	public Login(){
-//test
+
 		//Standard-Konstruktor
+		
 		setDefaultCloseOperation(EXIT_ON_CLOSE); //das muessen wir spaeter wohl rausnehmen, hab gelesen, dass das stoeren kann, wenn man den jframe im browser darstellen moechte
 		setSize(400,100);
-		setLayout(new GridLayout(3,2));
+		setLayout(new GridLayout(4,2));
 		//Hinzufuegen der Komponenten zum JFrame
 		userLabel.setOpaque(true);
 		userLabel.setBackground(Color.DARK_GRAY);
@@ -64,6 +66,13 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
             }
         });
 		add(registerButton);
+		
+		add(schlieﬂenButton);
+		schlieﬂenButton.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+                dispose();
+			}});
+		
 	}
 
 
