@@ -1,13 +1,16 @@
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -159,8 +162,19 @@ public class ScheduleUser extends JFrame{
 		
 		public void actionPerformed(ActionEvent e) {
 			txtName = "seatssaal" + 1 +"-"+ hall1comboBox.getSelectedIndex()  + ".txt";
-			HallUser UserHall = new HallUser(txtName, ScheduleUser.this);
-			UserHall.setVisible(true);
+			
+			
+			try {
+				HallUser userHall = new HallUser(txtName, ScheduleUser.this);
+				userHall.setVisible(true);
+			} 
+			catch (FileNotFoundException | NullPointerException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+				System.out.println("Vorstellung nicht gefunden");
+				missingShowDialog();
+				
+			}
 		}
 	}
 	
@@ -169,15 +183,37 @@ public class ScheduleUser extends JFrame{
 		
 		public void actionPerformed(ActionEvent e) {
 			txtName = "seatssaal" + 2 + "-"+ hall2comboBox.getSelectedIndex()  + ".txt";
-			HallUser UserHall = new HallUser(txtName, ScheduleUser.this);
-			UserHall.setVisible(true);
+			
+			try {
+				HallUser userHall = new HallUser(txtName, ScheduleUser.this);
+				userHall.setVisible(true);
+			} 
+			catch (FileNotFoundException | NullPointerException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+				System.out.println("Vorstellung nicht gefunden");
+				missingShowDialog();
+				
+			}
+
+			
 		}
 		
 	}public class hall3ChooseListener implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 			txtName = "seatssaal" + 3 +"-"+ hall3comboBox.getSelectedIndex()  + ".txt";
-			HallUser UserHall = new HallUser(txtName, ScheduleUser.this);
-			UserHall.setVisible(true);
+			
+			try {
+				HallUser userHall = new HallUser(txtName, ScheduleUser.this);
+				userHall.setVisible(true);
+			} 
+			catch (FileNotFoundException | NullPointerException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+				System.out.println("Vorstellung nicht gefunden");
+				missingShowDialog();
+				
+			}
 		}
 	}
 	
@@ -186,6 +222,27 @@ public class ScheduleUser extends JFrame{
 		dispose();
 		
 	}
+	
+	public void missingShowDialog() {
+		final JDialog missingShowDialog = new JDialog();
+		missingShowDialog.setTitle("");
+		missingShowDialog.setSize(400,120);
+		missingShowDialog.setModal(false);
+		missingShowDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		missingShowDialog.setLayout(new FlowLayout());
+		missingShowDialog.add(new JLabel("<html><body>Die von Ihnen gewählte Vorstellung existiert nicht. <br> Wenden Sie sich persönlich an Ihren Kinobetreiber.</body></html>"));
+		JButton closeButton = new JButton("schließen");
+		missingShowDialog.add(closeButton);
+		missingShowDialog.setVisible(true);
+		closeButton.addActionListener(new ActionListener(){
+
+			public void actionPerformed(ActionEvent e) {
+				missingShowDialog.dispose();	
+			}
+		});
+	}
+	
+	
 	
 }
 

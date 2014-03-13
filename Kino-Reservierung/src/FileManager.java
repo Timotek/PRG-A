@@ -36,6 +36,10 @@ public class FileManager {
 	public void chooseFile(String filename){
 		
 		this.filename = filename;
+		
+		//Datei muss zuerst vom FTP-Server downgeloaded werden
+		new UploadDownload(false, this.filename);
+		
 		file = new File(filename);
 		
 		try {
@@ -51,7 +55,7 @@ public class FileManager {
 	//zweit chooseFile methode fuer writeFile
 	public void chooseFileWrite(String filename){
 		
-		this.filename = filename;
+		this.filename = filename;		
 		file = new File(filename);
 		
 		try {

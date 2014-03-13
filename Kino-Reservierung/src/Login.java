@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.io.*;
 import java.util.*;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -31,6 +30,7 @@ JButton registerButton = new JButton("Register");
 JButton schlieﬂenButton = new JButton("Schlieﬂen");
 
 
+
 String userName;
 String pw;
 
@@ -47,7 +47,7 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 		userLabel.setOpaque(true);
 		userLabel.setBackground(Color.DARK_GRAY);
 		userLabel.setForeground(Color.BLACK);
-
+		
 		add(userLabel);
 		userField.setForeground(Color.BLACK);
 		add(userField);

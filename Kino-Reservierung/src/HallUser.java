@@ -3,6 +3,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +40,7 @@ public class HallUser extends JFrame{
 	//Instanzvariable für die zu waehlende Textdatei mit den Sitzen
 	String show;
 	
-	public HallUser(String show, ScheduleUser userSchedule){
+	public HallUser(String show, ScheduleUser userSchedule) throws FileNotFoundException{
 		
 		//Standard-Kontruktor...
 		super("Hall Overview");
@@ -193,6 +194,8 @@ public class HallUser extends JFrame{
 					}
 				}
 			}
+			//Datei wird hier dann auf den FTP-Server hochgeladen
+			new UploadDownload(true, show);
 			
 			AcceptDialog();
 			dispose();
