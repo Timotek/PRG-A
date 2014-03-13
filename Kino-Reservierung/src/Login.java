@@ -75,13 +75,13 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 			}});
 		
 		
-		
+		add(registerButton);
 		add(schlieﬂenButton);
 		schlieﬂenButton.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
                 dispose();
 			}});
-		add(registerButton);
+		
 		
 		
 		
@@ -208,12 +208,11 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 		final JDialog logoutDialog = new JDialog();
 		logoutDialog.setTitle("");
 		logoutDialog.setSize(260,100);
-		logoutDialog.setBackground(Color.DARK_GRAY);
 		logoutDialog.setModal(false);
 		logoutDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		logoutDialog.setLayout(new FlowLayout());
 		logoutDialog.add(new JLabel("Sie haben sich erfolgreich ausgeloggt!"));
-		JButton closeButton = new JButton("schlieﬂen");
+		JButton closeButton = new JButton("Schlieﬂen");
 		JButton neuAnmelden = new JButton("Neu anmelden");
 		logoutDialog.add(neuAnmelden);
 		logoutDialog.add(closeButton);

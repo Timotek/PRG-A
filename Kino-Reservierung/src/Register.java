@@ -217,34 +217,21 @@ import javax.swing.JDialog;
 		
 		//Dialog wenn Registrierung erfolgreich war.
 		public static void finishedDialog(){
-			//final JDialog filledInDialog = new JDialog();
-			//filledInDialog.setTitle("Registrierung erfolgreich!");
-			//filledInDialog.setSize(400,100);
-			//filledInDialog.setModal(false);
-			//filledInDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
-			//filledInDialog.setLayout(new GridLayout(2,1));
-			//filledInDialog.add(new JLabel("Sie haben sich erfolgreich registriert!"));    
-		   // JButton closeButton = new JButton("schließen");
-		    //filledInDialog.add(closeButton);       
-		    //filledInDialog.setVisible(true);
-		    
-		    
-		    /////
-		    final JFrame frame = new JFrame();
-			frame.add(new face2d());
-			frame.setSize(700, 900);
-			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			frame.setVisible(true);
-			 JButton closeButton = new JButton("Zurück");
-			    frame.add(closeButton);       
-			    frame.setVisible(true);
+			final JDialog filledInDialog = new JDialog();
+			filledInDialog.setTitle("Registrierung erfolgreich!");
+			filledInDialog.setSize(400,100);
+			filledInDialog.setModal(false);
+			filledInDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+			filledInDialog.setLayout(new GridLayout(2,1));
+			filledInDialog.add(new JLabel("Sie haben sich erfolgreich registriert!"));    
+		    JButton closeButton = new JButton("schließen");
+		    filledInDialog.add(closeButton);       
+		    filledInDialog.setVisible(true);
 
-			
-		    ////
 		    closeButton.addActionListener(new ActionListener(){
 		    
 		    public void actionPerformed(ActionEvent e) {
-		    	frame.dispose();	
+		    	filledInDialog.dispose();	
 		    }
 		    }); 		
 		}
