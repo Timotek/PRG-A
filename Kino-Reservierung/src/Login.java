@@ -41,7 +41,7 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 		//Standard-Konstruktor
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE); //das muessen wir spaeter wohl rausnehmen, hab gelesen, dass das stoeren kann, wenn man den jframe im browser darstellen moechte
-		setSize(400,100);
+		setSize(450,150);
 		setLayout(new GridLayout(4,2));
 		//Hinzufuegen der Komponenten zum JFrame
 		userLabel.setOpaque(true);
@@ -70,8 +70,8 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 		logoutButton.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
                 dispose();
-                Login login = new Login();
-                login.setVisible(true);
+                logoutDialog();
+                
                 
 			}});
 		
@@ -201,6 +201,27 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 
 			public void actionPerformed(ActionEvent e) {
 				loginDialog.dispose();	
+			}
+		});
+	}
+	
+	public void logoutDialog() {
+		final JDialog logoutDialog = new JDialog();
+		logoutDialog.setTitle("");
+		logoutDialog.setSize(400,100);
+		logoutDialog.setModal(false);
+		logoutDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		logoutDialog.setLayout(new FlowLayout());
+		logoutDialog.add(new JLabel("Sie haben sich erfolgreich ausgeloggt!"));
+		JButton closeButton = new JButton("schlieﬂen");
+		logoutDialog.add(closeButton);
+		logoutDialog.setVisible(true);
+		closeButton.addActionListener(new ActionListener(){
+
+			public void actionPerformed(ActionEvent e) {
+				logoutDialog.dispose();	
+				Login login = new Login();
+                login.setVisible(true);
 			}
 		});
 	}
