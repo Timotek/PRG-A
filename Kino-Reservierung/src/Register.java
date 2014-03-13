@@ -160,7 +160,6 @@ import javax.swing.JDialog;
 				System.out.println (pw2);
 				if(comparePassword()==true && checkIfFilledIn()==true){
 					sendData();
-					//Fenster schließen.
 					dispose();
 					
 				
@@ -172,11 +171,11 @@ import javax.swing.JDialog;
 		//Vergleich der Passworteingabe
 		public boolean comparePassword(){
 			if(pw.equals(pw2)) {
-			    System.out.println("gleich");
+			    //System.out.println("gleich");
 			    return true;
 			}
 			 else {
-				 System.out.println("ungleich");
+				// System.out.println("ungleich");
 				 pwDialog();  
 			     return false;
 			    }
@@ -200,8 +199,7 @@ import javax.swing.JDialog;
 			final JDialog filledInDialog = new JDialog();
 			filledInDialog.setTitle("Fehler!");
 			filledInDialog.setSize(200,100);
-			filledInDialog.setModal(false);
-			//filledInDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+			filledInDialog.setModal(false); 
 			filledInDialog.setLayout(new FlowLayout());
 			filledInDialog.add(new JLabel(" Bitte füllen Sie alle Felder aus!"));    
 		    JButton closeButton = new JButton("OK");
@@ -221,7 +219,6 @@ import javax.swing.JDialog;
 			filledInDialog.setTitle("Registrierung erfolgreich!");
 			filledInDialog.setSize(250,100);
 			filledInDialog.setModal(false);
-			filledInDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
 			filledInDialog.setLayout(new FlowLayout());
 			filledInDialog.add(new JLabel("Sie haben sich erfolgreich registriert!"));    
 		    JButton closeButton = new JButton("OK");
@@ -244,7 +241,6 @@ import javax.swing.JDialog;
 	        pwDialog.setTitle("Achtung");
 	        pwDialog.setSize(200,200);
 	        pwDialog.setModal(false);
-	        pwDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
 	        pwDialog.setSize(200,200);
 	        pwDialog.setLayout(new FlowLayout());
 	        pwDialog.add(new JLabel("Passwörter nicht identisch!"));    
@@ -266,10 +262,4 @@ import javax.swing.JDialog;
 		
 		/////////////////////////////////////////////////////////////////////
 
-		public static void main (String[] args){
-			Register app = new Register();
-			app.setVisible(true);
-		}
 	}
-	
-	//neu

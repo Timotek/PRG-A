@@ -1,4 +1,5 @@
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 //import java.awt.List;
 import java.awt.event.ActionEvent;
@@ -12,6 +13,7 @@ import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -139,6 +141,30 @@ public class ScheduleAdmin extends JFrame{
 	}
 
 	
+	
+	
+	public void loginDialog() {
+		final JDialog loginDialog = new JDialog();
+		loginDialog.setTitle("");
+		loginDialog.setSize(400,100);
+		loginDialog.setModal(false);
+		loginDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		loginDialog.setLayout(new FlowLayout());
+		loginDialog.add(new JLabel("Das Passwort oder der Benutzername ist nicht korrekt"));
+		JButton closeButton = new JButton("schlieﬂen");
+		loginDialog.add(closeButton);
+		loginDialog.setVisible(true);
+		closeButton.addActionListener(new ActionListener(){
+
+			public void actionPerformed(ActionEvent e) {
+				loginDialog.dispose();	
+			}
+		});
+	}
+	
+	
+	
+	
 	//////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////
 	
@@ -186,6 +212,27 @@ public class ScheduleAdmin extends JFrame{
 	}
 	*/
 	
+	public void confirmDialog() {
+		final JDialog confirmDialog = new JDialog();
+		confirmDialog.setTitle("");
+		confirmDialog.setSize(400,100);
+		confirmDialog.setModal(false);
+		confirmDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		confirmDialog.setLayout(new FlowLayout());
+		confirmDialog.add(new JLabel("Sie haben den Film erfolgreich eingetragen!"));
+		JButton closeButton = new JButton("schlieﬂen");
+		confirmDialog.add(closeButton);
+		confirmDialog.setVisible(true);
+		closeButton.addActionListener(new ActionListener(){
+
+			public void actionPerformed(ActionEvent e) {
+				confirmDialog.dispose();	
+				Login login = new Login();
+                login.setVisible(true);
+			}
+		});
+	}
+	
 	public ScheduleAdmin(){
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -207,6 +254,12 @@ public class ScheduleAdmin extends JFrame{
 
 		
 		JButton hall1save = new JButton("Speichern");
+		hall1save.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+                dispose();
+                confirmDialog();    
+			}});
+		
 		hall1save.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 
