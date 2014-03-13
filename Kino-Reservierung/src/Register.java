@@ -202,9 +202,9 @@ import javax.swing.JDialog;
 			filledInDialog.setSize(200,100);
 			filledInDialog.setModal(false);
 			//filledInDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
-			filledInDialog.setLayout(new GridLayout(2,1));
+			filledInDialog.setLayout(new FlowLayout());
 			filledInDialog.add(new JLabel(" Bitte füllen Sie alle Felder aus!"));    
-		    JButton closeButton = new JButton("Zurück");
+		    JButton closeButton = new JButton("OK");
 		    filledInDialog.add(closeButton);
 		    filledInDialog.setVisible(true);
 		    closeButton.addActionListener(new ActionListener(){
@@ -219,12 +219,12 @@ import javax.swing.JDialog;
 		public static void finishedDialog(){
 			final JDialog filledInDialog = new JDialog();
 			filledInDialog.setTitle("Registrierung erfolgreich!");
-			filledInDialog.setSize(400,100);
+			filledInDialog.setSize(250,100);
 			filledInDialog.setModal(false);
 			filledInDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
-			filledInDialog.setLayout(new GridLayout(2,1));
+			filledInDialog.setLayout(new FlowLayout());
 			filledInDialog.add(new JLabel("Sie haben sich erfolgreich registriert!"));    
-		    JButton closeButton = new JButton("schließen");
+		    JButton closeButton = new JButton("OK");
 		    filledInDialog.add(closeButton);       
 		    filledInDialog.setVisible(true);
 
@@ -248,7 +248,7 @@ import javax.swing.JDialog;
 	        pwDialog.setSize(200,200);
 	        pwDialog.setLayout(new FlowLayout());
 	        pwDialog.add(new JLabel("Passwörter nicht identisch!"));    
-	        JButton closeButton = new JButton("Zurück");
+	        JButton closeButton = new JButton("OK");
 	        pwDialog.add(closeButton);       
 	        pwDialog.setVisible(true);
 	        closeButton.addActionListener(new ActionListener(){
