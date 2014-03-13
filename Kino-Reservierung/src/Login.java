@@ -207,7 +207,8 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 	public void logoutDialog() {
 		final JDialog logoutDialog = new JDialog();
 		logoutDialog.setTitle("");
-		logoutDialog.setSize(500,100);
+		logoutDialog.setSize(260,100);
+		logoutDialog.setBackground(Color.DARK_GRAY);
 		logoutDialog.setModal(false);
 		logoutDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		logoutDialog.setLayout(new FlowLayout());
