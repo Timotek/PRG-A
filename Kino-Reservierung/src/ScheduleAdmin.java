@@ -81,6 +81,7 @@ public class ScheduleAdmin extends JFrame{
 			}	
 		}		
 	}
+	
 	public class SaveTitleListenerHall2 implements ActionListener{
 
 		@Override
@@ -147,7 +148,7 @@ public class ScheduleAdmin extends JFrame{
 	//////////////////////////////////////////////////////////////
 	
 	
-	//unnötiger ActionListener
+	
 	
 	public class DateListenerHall1 implements ActionListener{
 
@@ -232,11 +233,6 @@ public class ScheduleAdmin extends JFrame{
 
 		
 		JButton hall1save = new JButton("Speichern");
-		hall1save.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent e) {
-                
-                confirmDialog();    
-			}});
 		
 		hall1save.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -313,7 +309,15 @@ public class ScheduleAdmin extends JFrame{
 				}
 				*/
 			}
-        });		
+			
+        });	
+		hall1save.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+                
+                confirmDialog();    
+			}});
+		
+		
 		
 		JButton hall2save = new JButton("Speichern");
 		hall2save.addActionListener(new java.awt.event.ActionListener() {
@@ -356,6 +360,12 @@ public class ScheduleAdmin extends JFrame{
 			}
 	
         });	
+		hall2save.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+                
+                confirmDialog();    
+			}});
+		
 		
 		JButton hall3save = new JButton("Speichern");
 		hall3save.addActionListener(new java.awt.event.ActionListener() {
@@ -397,6 +407,12 @@ public class ScheduleAdmin extends JFrame{
 				}
 			}
         });	
+		hall3save.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+                
+                confirmDialog();    
+			}});
+		
 		
 		
 		//////////////////////////////////////////////////
