@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,6 +9,7 @@ import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -26,6 +28,8 @@ public class HallUser extends JFrame{
 	JButton save = new JButton("Auswahl reservieren");
 	JButton discard = new JButton("Zurück");
 	
+	
+	
 	//Objekt vom FileManager erstellen
 	FileManager fm = new FileManager();
 
@@ -43,6 +47,7 @@ public class HallUser extends JFrame{
 		setSize(600,600);
 		setLayout(new GridLayout(9,1));
 		this.show = show;
+		
 		
 		//Datei waehlen 
 		fm.chooseFile(show);
@@ -125,12 +130,32 @@ public class HallUser extends JFrame{
 		}
 	}
 	
+	
+	public void AcceptDialog() {
+		final JDialog AcceptDialog = new JDialog();
+		AcceptDialog.setTitle("");
+		AcceptDialog.setSize(400,100);
+		AcceptDialog.setModal(false);
+		AcceptDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		AcceptDialog.setLayout(new FlowLayout());
+		AcceptDialog.add(new JLabel("Ihre Reservierung war erfolgreich!"));
+		JButton closeButton = new JButton("schließen");
+		AcceptDialog.add(closeButton);
+		AcceptDialog.setVisible(true);
+		closeButton.addActionListener(new ActionListener(){
+
+			public void actionPerformed(ActionEvent e) {
+				AcceptDialog.dispose();	
+			}
+		});
+	}
+	
 	//Dieser Action Listener uberpruft, welch Checkboxen ausgewÃ¤hlt sind
 	public class SaveListener implements ActionListener{
 
-		@Override
+		
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
+	
 			
 			JCheckBox tempBox;
 			fm.chooseFileWrite(show);
@@ -147,7 +172,7 @@ public class HallUser extends JFrame{
 						try {
 							fm.writeFile("00");
 						} catch (IOException e1) {
-							// TODO Auto-generated catch block
+							
 							e1.printStackTrace();
 						}
 						
@@ -161,21 +186,19 @@ public class HallUser extends JFrame{
 						try {
 							fm.writeFile(valueIJ);
 						} catch (IOException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
 					}
 				}
 			}
+			
+			AcceptDialog();
+			dispose();
+			//userSchedule.close();
+			
+			
 		}
 	}
 	
-	//public static void main(String [] args){
-		
-		//HallUser app = new HallUser("seats");
-		//app.setVisible(true);
-		
-	//}
+	
 }
-
-//neu

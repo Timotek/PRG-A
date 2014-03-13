@@ -80,7 +80,7 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 			this.passField = passField;
 
 	}
-		@Override
+		
 		public void actionPerformed (ActionEvent e){
 			userName = userField.getText();
 			pw = String.valueOf(passField.getPassword());
@@ -182,10 +182,6 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 			}
 		});
 	}
-
-
-
-
 
 
 	public static void main(String[]args){

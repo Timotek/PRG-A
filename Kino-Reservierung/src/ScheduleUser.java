@@ -156,37 +156,36 @@ public class ScheduleUser extends JFrame{
 	
 	public class hall1ChooseListener implements ActionListener{
 	
-		@Override
+		
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
 			txtName = "seatssaal" + 1 +"-"+ hall1comboBox.getSelectedIndex()  + ".txt";
 			HallUser UserHall = new HallUser(txtName);
 			UserHall.setVisible(true);
 		}
 	}
+	
 	public class hall2ChooseListener implements ActionListener{
 		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			txtName = "seatssaal" + 2 + "-"+ hall2comboBox.getSelectedIndex()  + ".txt";
-
-		}
-	}public class hall3ChooseListener implements ActionListener{
-	
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			txtName = "seatssaal" + 3 +"-"+ hall3comboBox.getSelectedIndex()  + ".txt";
-			System.out.println(txtName);
-		}
-	}
-	
-	public static void main(String[]args){
 		
-		ScheduleUser app = new ScheduleUser();
-		app.setVisible(true);
+		public void actionPerformed(ActionEvent e) {
+			txtName = "seatssaal" + 2 + "-"+ hall2comboBox.getSelectedIndex()  + ".txt";
+			HallUser UserHall = new HallUser(txtName);
+			UserHall.setVisible(true);
+		}
+		
+	}public class hall3ChooseListener implements ActionListener{
+			public void actionPerformed(ActionEvent e) {
+			txtName = "seatssaal" + 3 +"-"+ hall3comboBox.getSelectedIndex()  + ".txt";
+			HallUser UserHall = new HallUser(txtName);
+			UserHall.setVisible(true);
+		}
 	}
+	
+	public void close(){
+		
+		dispose();
+		
+	}
+	
 }
 
-//neu
