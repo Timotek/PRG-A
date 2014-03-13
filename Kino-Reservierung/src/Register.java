@@ -198,14 +198,14 @@ import javax.swing.JDialog;
 		//JDialog Fester, falls nicht alle Daten ausgefüllt wurden
 		public void filledInDialog(){
 			final JDialog filledInDialog = new JDialog();
-			filledInDialog.setTitle("Fehler");
-			filledInDialog.setSize(400,100);
+			filledInDialog.setTitle("Fehler!");
+			filledInDialog.setSize(200,100);
 			filledInDialog.setModal(false);
 			//filledInDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
 			filledInDialog.setLayout(new GridLayout(2,1));
-			filledInDialog.add(new JLabel("Bitte füllen Sie alle Felder aus"));    
+			filledInDialog.add(new JLabel(" Bitte füllen Sie alle Felder aus!"));    
 		    JButton closeButton = new JButton("Zurück");
-		    filledInDialog.add(closeButton);       
+		    filledInDialog.add(closeButton);
 		    filledInDialog.setVisible(true);
 		    closeButton.addActionListener(new ActionListener(){
 		    
