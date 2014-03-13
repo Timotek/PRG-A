@@ -67,6 +67,9 @@ public class FileManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		//Datei wird hier dann auf den FTP-Server hochgeladen
+		new UploadDownload(true, this.filename);
 	}
 	
 	
