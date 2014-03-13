@@ -155,17 +155,4 @@ public class FileManager {
 	}
 	
 	
-	
-	
-	
-	
-	/*
-	public static void main(String[]args){
-		
-		FileManager app = new FileManager();
-	}
-	*/
-	
 }
-
-//neu
