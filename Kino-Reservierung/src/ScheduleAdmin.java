@@ -26,9 +26,9 @@ public class ScheduleAdmin extends JFrame{
 	int saal2zaehler = -1;
 	int saal3zaehler = -1;
 	
-	JTextField hall1changeTitle = new JTextField("Hier Filmtitel eingeben");
-	JTextField hall2changeTitle = new JTextField("Hier Filmtitel eingeben");
-	JTextField hall3changeTitle = new JTextField("Hier Filmtitel eingeben");
+	JTextField hall1changeTitle = new JTextField("Hier Filmtitel eingeben",15);
+	JTextField hall2changeTitle = new JTextField("Hier Filmtitel eingeben",15);
+	JTextField hall3changeTitle = new JTextField("Hier Filmtitel eingeben",15);
 
 	JTextField hall1newDate = new JTextField("Hier neues Datum eingeben");
 	JTextField hall2newDate = new JTextField("Hier neues Datum eingeben");
@@ -45,6 +45,10 @@ public class ScheduleAdmin extends JFrame{
 			System.out.println(temp2);
 		}
 	}
+	
+	
+	
+	
 	
 	public class SaveTitleListenerHall1 implements ActionListener{
 
@@ -138,6 +142,9 @@ public class ScheduleAdmin extends JFrame{
 	//////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////
 	
+	
+	//unnötiger ActionListener
+	/*
 	public class DateListenerHall1 implements ActionListener{
 
 		@Override
@@ -177,12 +184,12 @@ public class ScheduleAdmin extends JFrame{
 			}	
 		}		
 	}
-	
+	*/
 	
 	public ScheduleAdmin(){
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(450,700);
+		setSize(550,600);
 		setLayout(new GridLayout(4,0));
 		
 		JPanel titlePanel = new JPanel();
@@ -190,17 +197,17 @@ public class ScheduleAdmin extends JFrame{
 		JPanel hall2Panel = new JPanel();
 		JPanel hall3Panel = new JPanel();
 				
-		JButton hall1delete = new JButton("Loeschen");
-		JButton hall2delete = new JButton("Loeschen");
-		JButton hall3delete = new JButton("Loeschen");
+	//	JButton hall1delete = new JButton("Loeschen");
+	//	JButton hall2delete = new JButton("Loeschen");
+	//	JButton hall3delete = new JButton("Loeschen");
 		
 		
 		//////////////////////////////////////////////////
 		//////////////////////////////////////////////////
 
 		
-		JButton hall1saveDate = new JButton("Datum speichern");
-		hall1saveDate.addActionListener(new java.awt.event.ActionListener() {
+		JButton hall1save = new JButton("Speichern");
+		hall1save.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 
 				saal1zaehler ++;
@@ -276,8 +283,8 @@ public class ScheduleAdmin extends JFrame{
 			}
         });		
 		
-		JButton hall2saveDate = new JButton("Datum speichern");
-		hall2saveDate.addActionListener(new java.awt.event.ActionListener() {
+		JButton hall2save = new JButton("Speichern");
+		hall2save.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 
 				saal2zaehler ++;
@@ -318,8 +325,8 @@ public class ScheduleAdmin extends JFrame{
 	
         });	
 		
-		JButton hall3saveDate = new JButton("Datum speichern");
-		hall3saveDate.addActionListener(new java.awt.event.ActionListener() {
+		JButton hall3save = new JButton("Speichern");
+		hall3save.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 
 				saal3zaehler ++;
@@ -364,9 +371,9 @@ public class ScheduleAdmin extends JFrame{
 		//////////////////////////////////////////////////
 		
 		
-		JButton hall1saveTitle = new JButton("Titel speichern");
-		JButton hall2saveTitle = new JButton("Titel speichern");
-		JButton hall3saveTitle = new JButton("Titel speichern");	
+		//JButton hall1saveTitle = new JButton("Titel speichern");
+		//JButton hall2saveTitle = new JButton("Titel speichern");
+		//JButton hall3saveTitle = new JButton("Titel speichern");	
 				
 		add(titlePanel);
 		add(hall1Panel);
@@ -384,9 +391,9 @@ public class ScheduleAdmin extends JFrame{
 		
 		
 		
-		hall1saveTitle.addActionListener(new SaveTitleListenerHall1());
-		hall2saveTitle.addActionListener(new SaveTitleListenerHall2());
-		hall3saveTitle.addActionListener(new SaveTitleListenerHall3());
+		hall1save.addActionListener(new SaveTitleListenerHall1());
+		hall2save.addActionListener(new SaveTitleListenerHall2());
+		hall3save.addActionListener(new SaveTitleListenerHall3());
 		
 
 		
@@ -404,16 +411,13 @@ public class ScheduleAdmin extends JFrame{
 		//JComboBox<String> hall1comboBox = new JComboBox<String>();
 		while(fm.readHall().equals("DATUM")){
 			hall1comboBox.addItem(fm.readHall());
-			
-			
+				
 		}
 		hall1Panel.add(hall1comboBox);
-		hall1Panel.add(hall1delete);
-		hall1delete.addActionListener(new Hall1DeleteListener());
-		hall1Panel.add(hall1newDate);
-		hall1Panel.add(hall1saveDate);
+		
 		hall1Panel.add(hall1changeTitle);
-		hall1Panel.add(hall1saveTitle);
+		hall1Panel.add(hall1save);
+		
 
 		/////////////////////////////////////////
 		
@@ -428,11 +432,13 @@ public class ScheduleAdmin extends JFrame{
 			
 		}
 		hall2Panel.add(hall2comboBox);
-		hall2Panel.add(hall2delete);
-		hall2Panel.add(hall2newDate);
-		hall2Panel.add(hall2saveDate);
+		
 		hall2Panel.add(hall2changeTitle);
-		hall2Panel.add(hall2saveTitle);
+		hall2Panel.add(hall2save);
+		
+		
+		
+		
 
 		
 		//////////////////////////////////////////
@@ -447,16 +453,16 @@ public class ScheduleAdmin extends JFrame{
 			hall3comboBox.addItem(fm.readHall());
 		}
 		hall3Panel.add(hall3comboBox);
-		hall3Panel.add(hall3delete);
-		hall3Panel.add(hall3newDate);
-		hall3Panel.add(hall3saveDate);
+		
 		hall3Panel.add(hall3changeTitle);
-		hall3Panel.add(hall3saveTitle);
+		hall3Panel.add(hall3save);
+		
+		
 		
 	}
 	
 	
-	
+	//main rausnehmen
 	
 	public static void main (String[]args){
 		
