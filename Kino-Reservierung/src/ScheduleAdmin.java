@@ -51,7 +51,6 @@ public class ScheduleAdmin extends JFrame{
 	
 	
 	
-	
 	public class SaveTitleListenerHall1 implements ActionListener{
 
 		@Override
@@ -79,6 +78,8 @@ public class ScheduleAdmin extends JFrame{
 				}
 				temp2 = temp2 + 1;
 			}	
+			new UploadDownload(true, "hall1.txt");
+			
 		}		
 	}
 	
@@ -109,6 +110,8 @@ public class ScheduleAdmin extends JFrame{
 				}
 				temp2 = temp2 + 1;
 			}	
+			new UploadDownload(true, "hall2.txt");
+			
 		}		
 	}
 	public class SaveTitleListenerHall3 implements ActionListener{
@@ -138,6 +141,8 @@ public class ScheduleAdmin extends JFrame{
 				}
 				temp2 = temp2 + 1;
 			}	
+			new UploadDownload(true, "hall3.txt");
+			
 		}		
 	}
 
@@ -271,43 +276,9 @@ public class ScheduleAdmin extends JFrame{
 						}
 					}
 				}
-				/*
-				////////////////////////
-				////////////////////////
-				//Datum zu txt hinfufuegen
-				
-				int temp1 = 0;
-				int temp2 = 0;
-				fm.chooseFile("hall1.txt");
-				
-				//List initialisieren
-				List<String> hallList = new ArrayList<>();
-				
-				//List mit Inhalt aus txt befuellen
-				hallList.add(fm.readHall());
-				while(fm.readHall().equals("DATUM")){
-					hallList.add(fm.readHall());
-					hallList.add("DATUM");
-				}
-				
-				//Neues Datum hinzufuegen
-				//hallList.add("DATUM");
-				//hallList.add(hall1newDate.getText());
+				new UploadDownload(true, saal1txt);
 				
 				
-				fm.chooseFileWrite("hall1.txt");
-				
-				//txt mit inhalt aus List befuellen
-				while(temp2 < hallList.size()){
-					try {
-						fm.writeFile(hallList.get(temp2));
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					temp2 = temp2 + 1;
-				}
-				*/
 			}
 			
         });	
@@ -357,6 +328,7 @@ public class ScheduleAdmin extends JFrame{
 						}
 					}
 				}
+				new UploadDownload(true, saal2txt);
 			}
 	
         });	
@@ -405,6 +377,7 @@ public class ScheduleAdmin extends JFrame{
 						}
 					}
 				}
+				new UploadDownload(true, saal3txt);
 			}
         });	
 		hall3save.addActionListener(new java.awt.event.ActionListener() {
@@ -460,7 +433,7 @@ public class ScheduleAdmin extends JFrame{
 		//++++++++++++++++++++++++++++++++++++++++++++++++
 
 		//////////////////////////////////////
-		
+		new UploadDownload (false, "hall1.txt");
 		fm.chooseFile("hall1.txt");
 		
 		//hall1Panel.setLayout(new GridLayout(3,3));
@@ -480,7 +453,7 @@ public class ScheduleAdmin extends JFrame{
 		
 
 		/////////////////////////////////////////
-		
+		new UploadDownload (false, "hall2.txt");
 		fm.chooseFile("hall2.txt");
 		
 		movieTitle2 = fm.readHall();
@@ -502,7 +475,7 @@ public class ScheduleAdmin extends JFrame{
 
 		
 		//////////////////////////////////////////
-		
+		new UploadDownload (false, "hall3.txt");
 		fm.chooseFile("hall3.txt");
 		
 		movieTitle3 = fm.readHall();

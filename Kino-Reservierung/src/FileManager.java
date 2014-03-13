@@ -38,7 +38,7 @@ public class FileManager {
 		this.filename = filename;
 		
 		//Datei muss zuerst vom FTP-Server downgeloaded werden
-		new UploadDownload(false, this.filename);
+		//new UploadDownload(false, this.filename);
 		
 		file = new File(filename);
 		
@@ -62,14 +62,14 @@ public class FileManager {
 
 			printWriter = new PrintWriter(file);
 			bufferedWriter = new BufferedWriter(printWriter);
-				
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		//Datei wird hier dann auf den FTP-Server hochgeladen
-		new UploadDownload(true, this.filename);
+
+		
 	}
 	
 	
