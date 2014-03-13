@@ -26,9 +26,9 @@ JTextField userField = new JTextField();
 JPasswordField passField = new JPasswordField();
 
 JButton loginButton = new JButton("Login");
+JButton logoutButton = new JButton("Logout");
 JButton registerButton = new JButton("Register");
 JButton schlieﬂenButton = new JButton("Schlieﬂen");
-
 
 
 String userName;
@@ -65,13 +65,26 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
                 register.setVisible(true);
             }
         });
-		add(registerButton);
+		
+		add(logoutButton);
+		logoutButton.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+                dispose();
+                Login login = new Login();
+                login.setVisible(true);
+                
+			}});
+		
+		
 		
 		add(schlieﬂenButton);
 		schlieﬂenButton.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
                 dispose();
 			}});
+		add(registerButton);
+		
+		
 		
 	}
 
