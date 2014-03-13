@@ -79,7 +79,7 @@ public class ScheduleUser extends JFrame{
 		int saal3 = 0;
 		
 		JLabel title = new JLabel("Vorstellung auswählen:");
-		title.setForeground(Color.BLACK);
+		title.setForeground(Color.WHITE);
 
 		titlePanel.add(title);
 
@@ -87,7 +87,7 @@ public class ScheduleUser extends JFrame{
 		
 		movieTitle1 = fm.readHall();
 		JLabel hall1Label = new JLabel("Saal 1: " + movieTitle1);
-		hall1Label.setForeground(Color.BLACK);
+		hall1Label.setForeground(Color.WHITE);
 
 		hall1Panel.add(hall1Label);
 		hall1comboBox = new JComboBox<String>();
@@ -110,7 +110,7 @@ public class ScheduleUser extends JFrame{
 		
 		movieTitle2 = fm.readHall();
 		JLabel hall2Label = new JLabel("Saal 2: " + movieTitle2);
-		hall2Label.setForeground(Color.BLACK);
+		hall2Label.setForeground(Color.WHITE);
 
 		hall2Panel.add(hall2Label);
 		hall2comboBox = new JComboBox<String>();
@@ -136,7 +136,7 @@ public class ScheduleUser extends JFrame{
 		
 		movieTitle3 = fm.readHall();
 		JLabel hall3Label = new JLabel("Saal 3: " + movieTitle3);
-		hall3Label.setForeground(Color.BLACK);
+		hall3Label.setForeground(Color.WHITE);
 
 		hall3Panel.add(hall3Label);
 		hall3comboBox = new JComboBox<String>();
