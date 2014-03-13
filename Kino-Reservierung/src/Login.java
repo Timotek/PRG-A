@@ -208,15 +208,24 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 	public void logoutDialog() {
 		final JDialog logoutDialog = new JDialog();
 		logoutDialog.setTitle("");
-		logoutDialog.setSize(400,100);
+		logoutDialog.setSize(500,100);
 		logoutDialog.setModal(false);
 		logoutDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		logoutDialog.setLayout(new FlowLayout());
 		logoutDialog.add(new JLabel("Sie haben sich erfolgreich ausgeloggt!"));
 		JButton closeButton = new JButton("schlieﬂen");
+		JButton neuAnmelden = new JButton("Neu anmelden");
+		logoutDialog.add(neuAnmelden);
 		logoutDialog.add(closeButton);
 		logoutDialog.setVisible(true);
 		closeButton.addActionListener(new ActionListener(){
+
+			public void actionPerformed(ActionEvent e) {
+				logoutDialog.dispose();	
+			}
+		});
+		
+		neuAnmelden.addActionListener(new ActionListener(){
 
 			public void actionPerformed(ActionEvent e) {
 				logoutDialog.dispose();	

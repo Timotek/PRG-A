@@ -54,31 +54,31 @@ import javax.swing.JDialog;
 			super("Registrierung");
 			//Auskommentiert, damit sich nur das Register Fenster, jedoch nicht das gesamte Programm schließt.
 			//setDefaultCloseOperation(EXIT_ON_CLOSE);
-			setSize(600,600);
+			setSize(542,270);
 			setLayout(new BorderLayout());
 
 			//Header-Panel
-			northPanel = new JPanel(new GridLayout(10,0));
-			add(northPanel, BorderLayout.NORTH);
+			//northPanel = new JPanel(new GridLayout(10,0));
+			//add(northPanel, BorderLayout.NORTH);
 
 			instructionsLabel.setText("Bitte füllen Sie folgendes Formular vollständig aus: ");
-			northPanel.add(instructionsLabel);
+			//northPanel.add(instructionsLabel);
 
 			//Formular-Panel
-			westPanel = new JPanel(new GridLayout(12,0));
+			westPanel = new JPanel(new GridLayout(8,0));
 			add(westPanel, BorderLayout.WEST);
-			eastPanel = new JPanel(new GridLayout(12,0));
+			eastPanel = new JPanel(new GridLayout(8,0));
 			add(eastPanel, BorderLayout.EAST);
-			southPanel = new JPanel(new FlowLayout());
-			add(southPanel, BorderLayout.SOUTH);
+			//southPanel = new JPanel(new FlowLayout());
+			//add(southPanel, BorderLayout.SOUTH);
 
 			firstNameLabel.setText(" Vorname: ");
 			nameLabel.setText(" Name: ");
 			userNameLabel.setText(" Username:");									
 			pwLabel.setText(" Passwort");	
 			pw2Label.setText(" Passwort wiederholen:");
-			birthdayLabel.setText(" Geburtsdatum:   (TT.MM.JJJJ)");
-			emailLabel.setText(" Email-Adresse:   (mustermann@domain.de)");
+			birthdayLabel.setText(" Geburtsdatum:  (TT.MM.JJJJ)");
+			emailLabel.setText(" Email-Adresse:  (mustermann@domain.de)");
 			
 			westPanel.add(firstNameLabel);
 			westPanel.add(nameLabel);
@@ -99,10 +99,10 @@ import javax.swing.JDialog;
 			//Actionlistener für Registerbutton
 			JButton registerButton = new JButton("Registrieren");
 			registerButton.addActionListener (new DataActionListener (firstNameTF, nameTF, birthdayTF, emailTF, userNameTF, pwTF, pw2TF));
-			southPanel.add(registerButton);
-			JButton abortButton = new JButton("Abbrechen");
+			westPanel.add(registerButton);
+			JButton abortButton = new JButton("Zurück");
 			//Button zum Abbrechen eingefügt
-			southPanel.add(abortButton);
+			eastPanel.add(abortButton);
 			abortButton.addActionListener(new java.awt.event.ActionListener() {
 		            public void actionPerformed(java.awt.event.ActionEvent e) {
 		            dispose();
@@ -197,7 +197,7 @@ import javax.swing.JDialog;
 			//filledInDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
 			filledInDialog.setLayout(new GridLayout(2,1));
 			filledInDialog.add(new JLabel("Bitte füllen Sie alle Felder aus"));    
-		    JButton closeButton = new JButton("schließen");
+		    JButton closeButton = new JButton("Zurück");
 		    filledInDialog.add(closeButton);       
 		    filledInDialog.setVisible(true);
 		    closeButton.addActionListener(new ActionListener(){
@@ -228,7 +228,7 @@ import javax.swing.JDialog;
 			frame.setSize(700, 900);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.setVisible(true);
-			 JButton closeButton = new JButton("schließen");
+			 JButton closeButton = new JButton("Zurück");
 			    frame.add(closeButton);       
 			    frame.setVisible(true);
 
@@ -254,7 +254,7 @@ import javax.swing.JDialog;
 	        pwDialog.setSize(200,200);
 	        pwDialog.setLayout(new FlowLayout());
 	        pwDialog.add(new JLabel("Passwörter nicht identisch!"));    
-	        JButton closeButton = new JButton("schließen");
+	        JButton closeButton = new JButton("Zurück");
 	        pwDialog.add(closeButton);       
 	        pwDialog.setVisible(true);
 	        closeButton.addActionListener(new ActionListener(){
