@@ -159,7 +159,7 @@ public class ScheduleUser extends JFrame{
 		
 		public void actionPerformed(ActionEvent e) {
 			txtName = "seatssaal" + 1 +"-"+ hall1comboBox.getSelectedIndex()  + ".txt";
-			HallUser UserHall = new HallUser(txtName);
+			HallUser UserHall = new HallUser(txtName, ScheduleUser.this);
 			UserHall.setVisible(true);
 		}
 	}
@@ -169,14 +169,14 @@ public class ScheduleUser extends JFrame{
 		
 		public void actionPerformed(ActionEvent e) {
 			txtName = "seatssaal" + 2 + "-"+ hall2comboBox.getSelectedIndex()  + ".txt";
-			HallUser UserHall = new HallUser(txtName);
+			HallUser UserHall = new HallUser(txtName, ScheduleUser.this);
 			UserHall.setVisible(true);
 		}
 		
 	}public class hall3ChooseListener implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 			txtName = "seatssaal" + 3 +"-"+ hall3comboBox.getSelectedIndex()  + ".txt";
-			HallUser UserHall = new HallUser(txtName);
+			HallUser UserHall = new HallUser(txtName, ScheduleUser.this);
 			UserHall.setVisible(true);
 		}
 	}

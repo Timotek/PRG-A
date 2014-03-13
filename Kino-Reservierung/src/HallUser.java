@@ -27,7 +27,7 @@ public class HallUser extends JFrame{
 	//Die zwei Buttons...
 	JButton save = new JButton("Auswahl reservieren");
 	JButton discard = new JButton("Zurück");
-	
+	ScheduleUser userSchedule1 = null;
 	
 	
 	//Objekt vom FileManager erstellen
@@ -39,7 +39,7 @@ public class HallUser extends JFrame{
 	//Instanzvariable fÃ¼r die zu waehlende Textdatei mit den Sitzen
 	String show;
 	
-	public HallUser(String show){
+	public HallUser(String show, ScheduleUser userSchedule){
 		
 		//Standard-Kontruktor...
 		super("Hall Overview");
@@ -47,6 +47,8 @@ public class HallUser extends JFrame{
 		setSize(600,600);
 		setLayout(new GridLayout(9,1));
 		this.show = show;
+		
+		userSchedule1 = userSchedule;
 		
 		
 		//Datei waehlen 
@@ -194,7 +196,7 @@ public class HallUser extends JFrame{
 			
 			AcceptDialog();
 			dispose();
-			//userSchedule.close();
+			userSchedule1.dispose();
 			
 			
 		}
