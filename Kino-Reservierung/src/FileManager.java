@@ -38,7 +38,7 @@ public class FileManager {
 		this.filename = filename;
 		
 		//Datei muss zuerst vom FTP-Server downgeloaded werden
-		//new UploadDownload(false, this.filename);
+		new UploadDownload(false, this.filename);
 		
 		file = new File(filename);
 		
