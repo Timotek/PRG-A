@@ -13,7 +13,7 @@ public class UploadDownload {
 		f = new SimpleFTPClient ();
 		f.setHost("tks.square7.ch");
 		f.setUser("tks_prg");
-		f.setPassword("wennsImArschloch3*Knallt!");
+		f.setPassword("PRGprojektA");
 		f.setRemoteFile(ftpFile);
 		System.out.println(ftpFile);
 		connected = f.connect();
